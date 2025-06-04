@@ -30,25 +30,25 @@ async def run_agent_workflow_async(
     max_step_num: int = 3,
     enable_background_investigation: bool = True,
 ):
-    """Run the agent workflow asynchronously with the given user input.
+    """运行agent工作流，异步执行，返回最终状态
 
     Args:
-        user_input: The user's query or request
-        debug: If True, enables debug level logging
-        max_plan_iterations: Maximum number of plan iterations
-        max_step_num: Maximum number of steps in a plan
-        enable_background_investigation: If True, performs web search before planning to enhance context
+        user_input: 用户输入
+        debug: 是否开启调试日志
+        max_plan_iterations: 最大计划迭代次数
+        max_step_num: 最大步骤数
+        enable_background_investigation: 是否开启背景调查
 
     Returns:
-        The final state after the workflow completes
+        当工作流执行完成时，返回最终状态
     """
     if not user_input:
-        raise ValueError("Input could not be empty")
+        raise ValueError("输入不能为空")
 
     if debug:
         enable_debug_logging()
 
-    logger.info(f"Starting async workflow with user input: {user_input}")
+    logger.info(f"开始异步工作流，用户输入: {user_input}")
     initial_state = {
         # Runtime Variables
         "messages": [{"role": "user", "content": user_input}],
@@ -89,13 +89,13 @@ async def run_agent_workflow_async(
                 else:
                     message.pretty_print()
             else:
-                # For any other output format
-                print(f"Output: {s}")
+                # 对于其他输出格式
+                print(f"输出: {s}")
         except Exception as e:
-            logger.error(f"Error processing stream output: {e}")
-            print(f"Error processing output: {str(e)}")
+            logger.error(f"处理流输出时出错: {e}")
+            print(f"处理输出时出错: {str(e)}")
 
-    logger.info("Async workflow completed successfully")
+    logger.info("异步工作流执行完成")
 
 
 if __name__ == "__main__":
