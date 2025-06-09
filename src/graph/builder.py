@@ -45,7 +45,7 @@ def build_graph_with_memory():
 
 
 def build_graph():
-    """Build and return the agent workflow graph without memory."""
+    """创建并返回具有memory的智能体工作流"""
     # build state graph
     builder = _build_base_graph()
     return builder.compile()

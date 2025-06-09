@@ -21,14 +21,14 @@ def ask(
     max_step_num=3,
     enable_background_investigation=True,
 ):
-    """Run the agent workflow with the given question.
+    """运行代理工作流，使用给定的问题。
 
     Args:
-        question: The user's query or request
-        debug: If True, enables debug level logging
-        max_plan_iterations: Maximum number of plan iterations
-        max_step_num: Maximum number of steps in a plan
-        enable_background_investigation: If True, performs web search before planning to enhance context
+        question: 用户的问题或请求
+        debug: 如果为True，则启用调试级别日志
+        max_plan_iterations: 规划最大迭代的次数
+        max_step_num: 规划最大步骤的次数
+        enable_background_investigation: 如果为True，则在规划之前执行网络搜索以增强上下文
     """
     asyncio.run(
         run_agent_workflow_async(
@@ -47,13 +47,13 @@ def main(
     max_step_num=3,
     enable_background_investigation=True,
 ):
-    """Interactive mode with built-in questions.
+    """交互模式，使用内置问题。
 
     Args:
-        enable_background_investigation: If True, performs web search before planning to enhance context
-        debug: If True, enables debug level logging
-        max_plan_iterations: Maximum number of plan iterations
-        max_step_num: Maximum number of steps in a plan
+        enable_background_investigation: 如果为True，则在规划之前执行网络搜索以增强上下文
+        debug: 如果为True，则启用调试级别日志
+        max_plan_iterations: 规划最大迭代的次数
+        max_step_num: 规划最大步骤的次数
     """
     # First select language
     language = inquirer.select(
