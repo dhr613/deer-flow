@@ -209,8 +209,8 @@ def human_feedback_node(
 def coordinator_node(
     state: State, config: RunnableConfig
 ) -> Command[Literal["planner", "background_investigator", "__end__"]]:
-    """Coordinator node that communicate with customers."""
-    logger.info("Coordinator talking.")
+    """用来与用户进行coordinate的节点"""
+    logger.info("正在与用户进行coordinating")
     configurable = Configuration.from_runnable_config(config)
     messages = apply_prompt_template("coordinator", state)
     response = (
